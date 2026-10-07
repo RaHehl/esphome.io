@@ -237,8 +237,9 @@ binary_sensor:
   the entity appears under the device's diagnostics rather than on its main card.
 
 - **actuator_error** (*Optional*): `true` while the motor reports an actuator error. What triggers it
-  is not known. Unknown until the motor first reports it; while the bus controller is not connected,
-  the last value stays. Defaults to the `problem` device class and the `diagnostic` entity category.
+  is not fully known; it has been seen set after the device restarts, until the next door command.
+  Unknown until the motor first reports it; while the bus controller is not connected, the last value
+  stays. Defaults to the `problem` device class and the `diagnostic` entity category.
 
 - All options from [Binary Sensor](/components/binary_sensor#config-binary_sensor).
 
