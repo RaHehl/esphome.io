@@ -228,6 +228,8 @@ binary_sensor:
 
 ### Configuration variables
 
+At least one of `is_connected` or `actuator_error` is required.
+
 - **hoermann_hcp_id** (*Optional*, [ID](/guides/configuration-types#id)): Manually specify the ID of the
   `hoermann_hcp` hub. Only required if you have more than one hub.
 
@@ -237,7 +239,7 @@ binary_sensor:
   the entity appears under the device's diagnostics rather than on its main card.
 
 - **actuator_error** (*Optional*): `true` while the motor reports an actuator error. What triggers it
-  is not fully known; it has been seen set after the device restarts, until the next door command.
+  is not fully known; it has been seen set after the ESPHome device restarts, until the next door command.
   Unknown until the motor first reports it; while the bus controller is not connected, the last value
   stays. Defaults to the `problem` device class and the `diagnostic` entity category.
 
