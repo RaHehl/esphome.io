@@ -197,7 +197,9 @@ Single Image Settings:
 
 Only single images use these: Home Assistant snapshots (picture cards refresh every 10 seconds) and the
 snapshot mode of `esp32_camera_web_server`. Streams (the Home Assistant more-info dialog, the web server
-stream mode, `rtsp_server` clients) and **idle_framerate** captures skip them.
+stream mode, `rtsp_server` clients) and **idle_framerate** captures skip them. Each single image runs
+the whole cycle, so a picture card that refreshes every 10 seconds also switches the light every 10
+seconds.
 
 > [!NOTE]
 > With `aec_mode: auto` the sensor makes up for a weaker light, so the light level hardly changes the
