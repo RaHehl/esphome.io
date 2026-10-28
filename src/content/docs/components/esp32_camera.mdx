@@ -192,12 +192,15 @@ Single Image Settings:
   begins, for example to switch on a flash LED. Use actions that finish right away.
 
 - **on_capture_end** (*Optional*, [Automation](/automations)): Runs after the image was captured, also
-  when a stream cancels the capture, after 4 seconds without a frame and on shutdown. A `light` may
-  stay on after shutdown, an `output` does not.
+  when a stream cancels the capture and on shutdown. If no frame that started after the delay arrived
+  4 seconds after **on_capture_start**, it runs as well and the next frame is used as is. The 4 seconds
+  include **capture_delay**, so with `3s` about one second is left. A `light` may stay on after
+  shutdown, an `output` does not.
 
 Only single images use these: Home Assistant snapshots (picture cards refresh every 10 seconds) and the
 snapshot mode of `esp32_camera_web_server`. Streams (the Home Assistant more-info dialog, the web server
-stream mode, `rtsp_server` clients) and **idle_framerate** captures skip them. Each single image runs
+stream mode, `rtsp_server` clients) and **idle_framerate** captures skip them. While a stream runs,
+single images skip them as well and come straight from the stream. Otherwise each single image runs
 the whole cycle, so a picture card that refreshes every 10 seconds also switches the light every 10
 seconds.
 
