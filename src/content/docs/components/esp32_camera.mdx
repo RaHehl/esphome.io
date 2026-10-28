@@ -182,16 +182,16 @@ White Balance Setting:
 
 Single Image Settings:
 
-- **capture_delay** (*Optional*, [Time](/guides/configuration-types#time)): Wait this long before a
+- **capture_delay** (*Optional*, [Time](/guides/configuration-types/#time)): Wait this long before a
   single image and drop frames that started before the wait ended, so a light switched on in
   **on_capture_start** and the auto exposure can settle. `0s` to `3s`, defaults to `0s`.
   With `idle_framerate: 0 fps` the first frame after an idle period is badly exposed, `500ms` to `2s`
   fixes that on an OV2640.
 
-- **on_capture_start** (*Optional*, [Automation](/automations)): Runs when a single image capture
+- **on_capture_start** (*Optional*, [Automation](/automations/)): Runs when a single image capture
   begins, for example to switch on a flash LED. Use actions that finish right away.
 
-- **on_capture_end** (*Optional*, [Automation](/automations)): Runs after the image was captured, also
+- **on_capture_end** (*Optional*, [Automation](/automations/)): Runs after the image was captured, also
   when a stream cancels the capture and on shutdown. If no frame that started after the delay arrived
   4 seconds after **on_capture_start**, it runs as well and the next frame is used as is. The 4 seconds
   include **capture_delay**, so with `3s` about one second is left. A `light` may stay on after
